@@ -167,9 +167,11 @@ function check() {
 function reset() {
         message = "reset";
         websocket.send(message);
+        message = "turn-X";
+        websocket.send(message);
 }
 function reset2() {
-    location.reload();
+    //location.reload();
     document.getElementById('b1').innerText = '';
     document.getElementById("b2").innerText = '';
     document.getElementById("b3").innerText = '';
@@ -213,15 +215,16 @@ function place2(id) {
                 } else {
                     turn = 'X';
                 }
+                message = "place-" + id + "-" + player;
+    			websocket.send(message);
+    			message = "turn-" + turn;
+    			websocket.send(message);
+    			check();
             }
         }
 
     }
-    message = "place-" + id + "-" + player;
-    websocket.send(message);
-    message = "turn-" + turn;
-    websocket.send(message);
-    check();
+
 
 }
 
