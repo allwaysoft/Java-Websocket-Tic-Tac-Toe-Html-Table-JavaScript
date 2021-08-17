@@ -165,10 +165,10 @@ function check() {
 
 // Function to reset game
 function reset() {
-        message = "reset";
-        websocket.send(message);
-        message = "turn-X";
-        websocket.send(message);
+    message = "reset";
+    websocket.send(message);
+    message = "turn-X";
+    websocket.send(message);
 }
 function reset2() {
     //location.reload();
@@ -216,10 +216,10 @@ function place2(id) {
                     turn = 'X';
                 }
                 message = "place-" + id + "-" + player;
-    			websocket.send(message);
-    			message = "turn-" + turn;
-    			websocket.send(message);
-    			check();
+                websocket.send(message);
+                message = "turn-" + turn;
+                websocket.send(message);
+                //check();
             }
         }
 
@@ -275,7 +275,7 @@ function onMessage(evt) {
         websocket.close(-1);
     }
     if (evt.data == 'reset') {
-		reset2();
+        reset2();
     }
     if (evt.data.indexOf("player") != -1) {
         //window.alert(evt.data);
