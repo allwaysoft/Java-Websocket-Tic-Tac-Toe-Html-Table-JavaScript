@@ -165,6 +165,10 @@ function check() {
 
 // Function to reset game
 function reset() {
+        message = "reset";
+        websocket.send(message);
+}
+function reset2() {
     location.reload();
     document.getElementById('b1').innerText = '';
     document.getElementById("b2").innerText = '';
@@ -266,6 +270,9 @@ function onMessage(evt) {
         document.getElementById('print')
                 .innerHTML = evt.data;
         websocket.close(-1);
+    }
+    if (evt.data == 'reset') {
+		reset2();
     }
     if (evt.data.indexOf("player") != -1) {
         //window.alert(evt.data);
