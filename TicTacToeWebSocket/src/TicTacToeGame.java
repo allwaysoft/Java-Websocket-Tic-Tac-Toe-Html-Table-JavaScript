@@ -14,6 +14,15 @@ public class TicTacToeGame {
 	private Session session;
 	private String player;
 	private static String lastUser;
+	private static String b1 = "";
+	private static String b2 = "";
+	private static String b3 = "";
+	private static String b4 = "";
+	private static String b5 = "";
+	private static String b6 = "";
+	private static String b7 = "";
+	private static String b8 = "";
+	private static String b9 = "";
 
 	@OnOpen
 	public void onOpen(Session session) throws IOException {
@@ -40,12 +49,51 @@ public class TicTacToeGame {
 
 	@OnMessage
 	public void onMessage(String message) {
-		if (player == lastUser) {
-			return;
-		}
 		System.out.println(player);
 		System.out.println(message);
-		sendText(message);
+		System.out.println(message.indexOf("place"));
+		if (message.indexOf("place") != -1) {
+			String[] words = message.split("-");
+			System.out.println("words[1]=" + words[1]);
+			System.out.println("words[2]=" + words[2]);
+			System.out.println("GAME_SET.size()=" + GAME_SET.size());
+
+			if (GAME_SET.size() > 1) {
+				if ("".equals(getPlayer(words[1]))) {
+					place3(words[1], words[2]);
+					sendText(message);
+					if ("X".equals(words[2])) {
+						sendText("turn-" + "O");
+					} else {
+						sendText("turn-" + "X");
+					}
+				}
+			}
+			System.out.println("b1=" + b1);
+			System.out.println("b2=" + b2);
+			System.out.println("b3=" + b3);
+			System.out.println("b4=" + b4);
+			System.out.println("b5=" + b5);
+			System.out.println("b6=" + b6);
+			System.out.println("b7=" + b7);
+			System.out.println("b8=" + b8);
+			System.out.println("b9=" + b9);
+
+		} else if ("reset".equals(message)) {
+			b1 = "";
+			b2 = "";
+			b3 = "";
+			b4 = "";
+			b5 = "";
+			b6 = "";
+			b7 = "";
+			b8 = "";
+			b9 = "";
+			sendText(message);
+		} else {
+			sendText(message);
+		}
+
 	}
 
 	private static void sendText(String msg) {
@@ -75,5 +123,67 @@ public class TicTacToeGame {
 				sendText(this.player + "已下线");
 			}
 		}
+	}
+
+	public void place3(String id, String player) {
+		if ("b1".equals(id)) {
+			b1 = player;
+		}
+		if ("b2".equals(id)) {
+			b2 = player;
+		}
+		if ("b3".equals(id)) {
+			b3 = player;
+		}
+		if ("b4".equals(id)) {
+			b4 = player;
+		}
+		if ("b5".equals(id)) {
+			b5 = player;
+		}
+		if ("b6".equals(id)) {
+			b6 = player;
+		}
+		if ("b7".equals(id)) {
+			b7 = player;
+		}
+		if ("b8".equals(id)) {
+			b8 = player;
+		}
+		if ("b9".equals(id)) {
+			b9 = player;
+		}
+	}
+
+	public String getPlayer(String id) {
+		String player = "";
+		if ("b1".equals(id)) {
+			player = b1;
+		}
+		if ("b2".equals(id)) {
+			player = b2;
+		}
+		if ("b3".equals(id)) {
+			player = b3;
+		}
+		if ("b4".equals(id)) {
+			player = b4;
+		}
+		if ("b5".equals(id)) {
+			player = b5;
+		}
+		if ("b6".equals(id)) {
+			player = b6;
+		}
+		if ("b7".equals(id)) {
+			player = b7;
+		}
+		if ("b8".equals(id)) {
+			player = b8;
+		}
+		if ("b9".equals(id)) {
+			player = b9;
+		}
+		return player;
 	}
 }

@@ -209,17 +209,8 @@ function place2(id) {
     if (gameover === 'NO') {
         if (turn === player) {
             if (document.getElementById(id).innerText === '') {
-                document.getElementById(id).innerText = player;
-                if (turn === 'X') {
-                    turn = 'O';
-                } else {
-                    turn = 'X';
-                }
                 message = "place-" + id + "-" + player;
                 websocket.send(message);
-                message = "turn-" + turn;
-                websocket.send(message);
-                //check();
             }
         }
 
