@@ -42,7 +42,13 @@ public class TicTacToeGame {
 		} else {
 			games.add(this);
 			session.getBasicRemote().sendText("player-" + player);
-			session.getBasicRemote().sendText("turn-" + "X");
+			if (games.size() == 1) {
+				sendText("wait");
+			}
+			if (games.size() == 2) {
+				sendText("start");
+			}
+			sendText("turn-" + "X");
 		}
 	}
 

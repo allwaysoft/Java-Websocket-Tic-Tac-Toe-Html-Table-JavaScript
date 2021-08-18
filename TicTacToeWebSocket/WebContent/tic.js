@@ -18,58 +18,58 @@ function check() {
     // Checking if Player X won or not and after
     // that disabled all the other fields
     if (b1 === 'X' && b2 === 'X' && b3 === 'X') {
-        document.getElementById('print')
+        document.getElementById('print2')
                 .innerHTML = "Player X won";
-        window.alert('Player X won');
+        //window.alert('Player X won');
         gameover = 'YES';
         message = "gameover-YES";
         websocket.send(message);
     } else if (b1 === 'X' && b4 === 'X' && b7 === 'X') {
-        document.getElementById('print')
+        document.getElementById('print2')
                 .innerHTML = "Player X won";
-        window.alert('Player X won');
+        //window.alert('Player X won');
         gameover = 'YES';
         message = "gameover-YES";
         websocket.send(message);
     } else if (b7 === 'X' && b8 === 'X' && b9 === 'X') {
-        document.getElementById('print')
+        document.getElementById('print2')
                 .innerHTML = "Player X won";
-        window.alert('Player X won');
+        //window.alert('Player X won');
         gameover = 'YES';
         message = "gameover-YES";
         websocket.send(message);
     } else if (b3 === 'X' && b6 === 'X' && b9 === 'X') {
-        document.getElementById('print')
+        document.getElementById('print2')
                 .innerHTML = "Player X won";
-        window.alert('Player X won');
+        //window.alert('Player X won');
         gameover = 'YES';
         message = "gameover-YES";
         websocket.send(message);
     } else if (b1 === 'X' && b5 === 'X' && b9 === 'X') {
-        document.getElementById('print')
+        document.getElementById('print2')
                 .innerHTML = "Player X won";
-        window.alert('Player X won');
+        //window.alert('Player X won');
         gameover = 'YES';
         message = "gameover-YES";
         websocket.send(message);
     } else if (b3 === 'X' && b5 === 'X' && b7 === 'X') {
-        document.getElementById('print')
+        document.getElementById('print2')
                 .innerHTML = "Player X won";
-        window.alert('Player X won');
+        //window.alert('Player X won');
         gameover = 'YES';
         message = "gameover-YES";
         websocket.send(message);
     } else if (b2 === 'X' && b5 === 'X' && b8 === 'X') {
-        document.getElementById('print')
+        document.getElementById('print2')
                 .innerHTML = "Player X won";
-        window.alert('Player X won');
+        //window.alert('Player X won');
         gameover = 'YES';
         message = "gameover-YES";
         websocket.send(message);
     } else if (b4 === 'X' && b5 === 'X' && b6 === 'X') {
-        document.getElementById('print')
+        document.getElementById('print2')
                 .innerHTML = "Player X won";
-        window.alert('Player X won');
+        //window.alert('Player X won');
         gameover = 'YES';
         message = "gameover-YES";
         websocket.send(message);
@@ -79,58 +79,58 @@ function check() {
     // Checking for Player O starts, Is player O won or
     // not and after that disabled all the other fields
     else if (b1 === 'O' && b2 === 'O' && b3 === 'O') {
-        document.getElementById('print')
+        document.getElementById('print2')
                 .innerHTML = "Player O won";
-        window.alert('Player O won');
+        //window.alert('Player O won');
         gameover = 'YES';
         message = "gameover-YES";
         websocket.send(message);
     } else if (b1 === 'O' && b4 === 'O' && b7 === 'O') {
-        document.getElementById('print')
+        document.getElementById('print2')
                 .innerHTML = "Player O won";
-        window.alert('Player O won');
+        //window.alert('Player O won');
         gameover = 'YES';
         message = "gameover-YES";
         websocket.send(message);
     } else if (b7 === 'O' && b8 === 'O' && b9 === 'O') {
-        document.getElementById('print')
+        document.getElementById('print2')
                 .innerHTML = "Player O won";
-        window.alert('Player O won');
+        //window.alert('Player O won');
         gameover = 'YES';
         message = "gameover-YES";
         websocket.send(message);
     } else if (b3 === 'O' && b6 === 'O' && b9 === 'O') {
-        document.getElementById('print')
+        document.getElementById('print2')
                 .innerHTML = "Player O won";
-        window.alert('Player O won');
+        //window.alert('Player O won');
         gameover = 'YES';
         message = "gameover-YES";
         websocket.send(message);
     } else if (b1 === 'O' && b5 === 'O' && b9 === 'O') {
-        document.getElementById('print')
+        document.getElementById('print2')
                 .innerHTML = "Player O won";
-        window.alert('Player O won');
+        //window.alert('Player O won');
         gameover = 'YES';
         message = "gameover-YES";
         websocket.send(message);
     } else if (b3 === 'O' && b5 === 'O' && b7 === 'O') {
-        document.getElementById('print')
+        document.getElementById('print2')
                 .innerHTML = "Player O won";
-        window.alert('Player O won');
+        //window.alert('Player O won');
         gameover = 'YES';
         message = "gameover-YES";
         websocket.send(message);
     } else if (b2 === 'O' && b5 === 'O' && b8 === 'O') {
-        document.getElementById('print')
+        document.getElementById('print2')
                 .innerHTML = "Player O won";
-        window.alert('Player O won');
+        //window.alert('Player O won');
         gameover = 'YES';
         message = "gameover-YES";
         websocket.send(message);
     } else if (b4 === 'O' && b5 === 'O' && b6 === 'O') {
-        document.getElementById('print')
+        document.getElementById('print2')
                 .innerHTML = "Player O won";
-        window.alert('Player O won');
+        //window.alert('Player O won');
         gameover = 'YES';
         message = "gameover-YES";
         websocket.send(message);
@@ -144,9 +144,9 @@ function check() {
             b5 === 'O') && (b6 === 'X' || b6 === 'O') &&
             (b7 === 'X' || b7 === 'O') && (b8 === 'X' ||
             b8 === 'O') && (b9 === 'X' || b9 === 'O')) {
-        document.getElementById('print')
+        document.getElementById('print2')
                 .innerHTML = "Match Tie";
-        window.alert('Match Tie');
+        //window.alert('Match Tie');
         gameover = 'YES';
         message = "gameover-YES";
         websocket.send(message);
@@ -182,6 +182,8 @@ function reset2() {
     document.getElementById("b8").innerText = '';
     document.getElementById("b9").innerText = '';
     gameover = 'NO';
+            document.getElementById('print2')
+                .innerHTML = "Game Started, Let's go!";
 }
 
 // Here onwards, functions check turn of the player
@@ -268,6 +270,19 @@ function onMessage(evt) {
     if (evt.data == 'reset') {
         reset2();
     }
+    if (evt.data == 'wait') {
+    	//window.alert("Waiting for Second Player");
+        document.getElementById('print2')
+                .innerHTML = "Waiting for Second Player";
+
+    }
+    if (evt.data == 'start') {
+        //window.alert("Game Started, Let's go!");
+        //document.getElementById('print2')
+        //        .innerHTML = "Game Started, Let's go!";
+        reset();
+
+    }
     if (evt.data.indexOf("player") != -1) {
         //window.alert(evt.data);
         words = evt.data.split("-");
@@ -299,7 +314,7 @@ function onMessage(evt) {
         gameover = words[1];
         //window.alert(turn);
         document.getElementById('print')
-                .innerHTML = "GameOver " + gameover;
+                .innerHTML = "Game Over!";
     }
     if (evt.data.indexOf("获胜") != -1) {
         eval(evt.data);
