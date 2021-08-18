@@ -299,7 +299,7 @@ function onMessage(evt) {
         turn = words[1];
         //window.alert(turn);
         document.getElementById('print')
-                .innerHTML = " It turn of " + turn;
+                .innerHTML = " It's turn of " + turn;
     }
     if (evt.data.indexOf("place") != -1) {
         //window.alert(evt.data);
