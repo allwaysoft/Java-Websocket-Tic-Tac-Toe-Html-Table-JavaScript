@@ -10,10 +10,9 @@ import java.util.concurrent.CopyOnWriteArraySet;
 
 @ServerEndpoint("/tictactoe")
 public class TicTacToeGame {
-	private static final Set<TicTacToeGame> GAME_SET = new CopyOnWriteArraySet<>();
+	private static final Set<TicTacToeGame> games = new CopyOnWriteArraySet<>();
 	private Session session;
 	private String player;
-	private static String lastUser;
 	private static String b1 = "";
 	private static String b2 = "";
 	private static String b3 = "";
@@ -29,19 +28,19 @@ public class TicTacToeGame {
 		System.out.println("Connection from" + session.getId());
 		this.session = session;
 
-		System.out.println(GAME_SET.size());
-		if (GAME_SET.size() == 0) {
+		System.out.println(games.size());
+		if (games.size() == 0) {
 			this.player = "X";
 		}
-		if (GAME_SET.size() == 1) {
+		if (games.size() == 1) {
 			this.player = "O";
 		}
-		if (GAME_SET.size() > 1) {
+		if (games.size() > 1) {
 			System.out.println("房间人满");
 			session.getBasicRemote().sendText("roomfull");
 //            session.close();
 		} else {
-			GAME_SET.add(this);
+			games.add(this);
 			session.getBasicRemote().sendText("player-" + player);
 			session.getBasicRemote().sendText("turn-" + "X");
 		}
@@ -56,9 +55,9 @@ public class TicTacToeGame {
 			String[] words = message.split("-");
 			System.out.println("words[1]=" + words[1]);
 			System.out.println("words[2]=" + words[2]);
-			System.out.println("GAME_SET.size()=" + GAME_SET.size());
+			System.out.println("games.size()=" + games.size());
 
-			if (GAME_SET.size() > 1) {
+			if (games.size() > 1) {
 				if ("".equals(getPlayer(words[1]))) {
 					place3(words[1], words[2]);
 					sendText(message);
@@ -97,13 +96,13 @@ public class TicTacToeGame {
 	}
 
 	private static void sendText(String msg) {
-		for (TicTacToeGame game : GAME_SET) {
+		for (TicTacToeGame game : games) {
 			try {
 				synchronized (game) {
 					game.session.getBasicRemote().sendText(msg);
 				}
 			} catch (IOException e) {
-				GAME_SET.remove(game);
+				games.remove(game);
 				try {
 					game.session.close();
 				} catch (IOException e1) {
@@ -116,9 +115,9 @@ public class TicTacToeGame {
 	@OnClose
 	public void onClose(Session session) {
 		System.out.println(session.getId());
-		GAME_SET.remove(this);
+		games.remove(this);
 		System.out.println(this.player + "已下线");
-		for (TicTacToeGame game : GAME_SET) {
+		for (TicTacToeGame game : games) {
 			if (game.player == this.player) {
 				sendText(this.player + "已下线");
 			}
