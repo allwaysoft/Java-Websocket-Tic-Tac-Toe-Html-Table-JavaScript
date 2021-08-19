@@ -67,6 +67,7 @@ public class TicTacToeGame {
 				if ("".equals(getPlayer(words[1]))) {
 					place3(words[1], words[2]);
 					sendText(message);
+					check();
 					if ("X".equals(words[2])) {
 						sendText("turn-" + "O");
 					} else {
@@ -85,16 +86,18 @@ public class TicTacToeGame {
 			System.out.println("b9=" + b9);
 
 		} else if ("reset".equals(message)) {
-			b1 = "";
-			b2 = "";
-			b3 = "";
-			b4 = "";
-			b5 = "";
-			b6 = "";
-			b7 = "";
-			b8 = "";
-			b9 = "";
-			sendText(message);
+			if (player.equals("X") || player.equals("O")) {
+				b1 = "";
+				b2 = "";
+				b3 = "";
+				b4 = "";
+				b5 = "";
+				b6 = "";
+				b7 = "";
+				b8 = "";
+				b9 = "";
+				sendText(message);
+			}
 		} else {
 			sendText(message);
 		}
@@ -191,4 +194,74 @@ public class TicTacToeGame {
 		}
 		return player;
 	}
+
+	public void check() {
+
+		if (b1.equals("X") && b2.equals("X") && b3.equals("X")) {
+			sendText("xwon");
+			sendText("gameover-YES");
+		} else if (b1.equals("X") && b4.equals("X") && b7.equals("X")) {
+			sendText("xwon");
+			sendText("gameover-YES");
+		} else if (b7.equals("X") && b8.equals("X") && b9.equals("X")) {
+			sendText("xwon");
+			sendText("gameover-YES");
+		} else if (b3.equals("X") && b6.equals("X") && b9.equals("X")) {
+			sendText("xwon");
+			sendText("gameover-YES");
+		} else if (b1.equals("X") && b5.equals("X") && b9.equals("X")) {
+			sendText("xwon");
+			sendText("gameover-YES");
+		} else if (b3.equals("X") && b5.equals("X") && b7.equals("X")) {
+			sendText("xwon");
+			sendText("gameover-YES");
+		} else if (b2.equals("X") && b5.equals("X") && b8.equals("X")) {
+			sendText("xwon");
+			sendText("gameover-YES");
+		} else if (b4.equals("X") && b5.equals("X") && b6.equals("X")) {
+			sendText("xwon");
+			sendText("gameover-YES");
+		}
+
+		else if (b1.equals("O") && b2.equals("O") && b3.equals("O")) {
+			sendText("owon");
+			sendText("gameover-YES");
+		} else if (b1.equals("O") && b4.equals("O") && b7.equals("O")) {
+			sendText("owon");
+			sendText("gameover-YES");
+		} else if (b7.equals("O") && b8.equals("O") && b9.equals("O")) {
+			sendText("owon");
+			sendText("gameover-YES");
+		} else if (b3.equals("O") && b6.equals("O") && b9.equals("O")) {
+			sendText("owon");
+			sendText("gameover-YES");
+		} else if (b1.equals("O") && b5.equals("O") && b9.equals("O")) {
+			sendText("owon");
+			sendText("gameover-YES");
+		} else if (b3.equals("O") && b5.equals("O") && b7.equals("O")) {
+			sendText("owon");
+			sendText("gameover-YES");
+		} else if (b2.equals("O") && b5.equals("O") && b8.equals("O")) {
+			sendText("owon");
+			sendText("gameover-YES");
+		} else if (b4.equals("O") && b5.equals("O") && b6.equals("O")) {
+			sendText("owon");
+			sendText("gameover-YES");
+		}
+
+		// Checking of Player O finsh
+		// Here, Checking about Tie
+		else if ((b1.equals("X") || b1.equals("O")) && (b2.equals("X") || b2.equals("O"))
+				&& (b3.equals("X") || b3.equals("O")) && (b4.equals("X") || b4.equals("O"))
+				&& (b5.equals("X") || b5.equals("O")) && (b6.equals("X") || b6.equals("O"))
+				&& (b7.equals("X") || b7.equals("O")) && (b8.equals("X") || b8.equals("O"))
+				&& (b9.equals("X") || b9.equals("O"))) {
+			sendText("tie");
+			sendText("gameover-YES");
+		} else {
+
+		}
+	}
 }
+
+
