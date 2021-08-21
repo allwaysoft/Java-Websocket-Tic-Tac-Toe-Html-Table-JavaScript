@@ -113,6 +113,15 @@ function onMessage(evt) {
                 .innerHTML = "平局";
 
     }
+    if (evt.data.indexOf("leave") != -1) {
+        //window.alert(evt.data);
+        words = evt.data.split("-");
+        //window.alert(words[1]);
+        player = words[1];
+        //window.alert(player);
+        document.getElementById("print2")
+                .innerHTML = "玩家" + player+"已离开游戏,请退出游戏";
+    }
     if (evt.data.indexOf("player") != -1) {
         //window.alert(evt.data);
         words = evt.data.split("-");

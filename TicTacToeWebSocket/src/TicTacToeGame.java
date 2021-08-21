@@ -116,7 +116,7 @@ public class TicTacToeGame {
 					game.session.close();
 				} catch (IOException e1) {
 				}
-				sendText(game.player + "已下线");
+				sendText("leave-" + game.player);
 			}
 		}
 	}
@@ -124,12 +124,10 @@ public class TicTacToeGame {
 	@OnClose
 	public void onClose(Session session) {
 		System.out.println(session.getId());
-		games.remove(this);
 		System.out.println(this.player + "已下线");
-		for (TicTacToeGame game : games) {
-			if (game.player == this.player) {
-				sendText(this.player + "已下线");
-			}
+		if (!"".equals(this.player)) {
+			games.remove(this);
+			sendText("leave-" + this.player);
 		}
 	}
 
